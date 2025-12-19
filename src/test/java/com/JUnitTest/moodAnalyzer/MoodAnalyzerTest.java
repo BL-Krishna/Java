@@ -1,4 +1,4 @@
-package com.JunitTest.moodAnalyzer;
+package com.JUnitTest.moodAnalyzer;
 import org.junit.jupiter.api.Test;
 
 import com.JUnit.MoodAnalyserTest.MoodAnalyzer;

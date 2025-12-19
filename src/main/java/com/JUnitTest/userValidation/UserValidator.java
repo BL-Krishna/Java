@@ -7,24 +7,28 @@ public class UserValidator {
     private static final String Name_Regex="^[A-Z][a-z]{2,}$";
     private static final String Email_Regex="^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$";
     private static final String Mobile_Regex="^[6-9][0-9]{9}$";
+    private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%!]).{8,}$";
+
 
     public boolean isValid(User user)
     {
         if(user==null){
-            return false;
+            throw new IllegalArgumentException("User cannot be null");
         }
         if(!Pattern.matches(Name_Regex,user.getFirstName())){
-            return false;
+            throw new InvalidFirstNameException("Invalid First Name");
         }
         if(!Pattern.matches(Name_Regex,user.getLastName())){
-            return false;
-
+            throw new InvalidLastNameException("Invalid Last Name");
         }
         if(!Pattern.matches(Email_Regex,user.getEmail())){
-            return false;
+            throw new InvalidEmailException("Invalid Email");
         }
         if(!Pattern.matches(Mobile_Regex,user.getMobile())){
-            return false;
+            throw new InvalidMobileNumberException("Invalid Mobile");
+        }
+        if(!Pattern.matches(PASSWORD_REGEX,user.getPassword())){
+            throw new InvalidPasswordException("Invalid Password");
         }
     return true;
     }
