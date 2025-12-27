@@ -33,5 +33,26 @@ import java.util.*;
          System.out.println("\nCount in Vijayawada : "+
          addressBook.countByCity("Vijayawada"));
 
+         System.out.println("\nSorted By Name:");
+         addressBook.sortByName().forEach(System.out::println);
+
+         System.out.println("\nSorted By City:");
+         addressBook.sortByCity().forEach(System.out::println);
+
+         System.out.println("\nSorted By State:");
+         addressBook.sortByState().forEach(System.out::println);
+
+         System.out.println("\nSorted By Zip:");
+         addressBook.sortByZip().forEach(System.out::println);
+
+         addressBook.writeToFile("addressbook.txt");
+
+         addressBook.getAllContacts().clear();
+         addressBook.readFromFile("addressbook.txt");
+
+         System.out.println("\nContacts After Reading From File:");
+         addressBook.getAllContacts().forEach(System.out::println);
+
+
      }
 }
