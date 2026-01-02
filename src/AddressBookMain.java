@@ -53,6 +53,22 @@ import java.util.*;
          System.out.println("\nContacts After Reading From File:");
          addressBook.getAllContacts().forEach(System.out::println);
 
+         // UC-14 CSV
+         addressBook.writeToCSV("addressbook.csv");
+         addressBook.getAllContacts().clear();
+         addressBook.readFromCSV("addressbook.csv");
+
+         System.out.println("\nContacts After Reading From CSV:");
+         addressBook.getAllContacts().forEach(System.out::println);
+
+        // UC-15 JSON
+         addressBook.writeToJSON("addressbook.json");
+         addressBook.getAllContacts().clear();
+         addressBook.readFromJSON("addressbook.json");
+
+         System.out.println("\nContacts After Reading From JSON:");
+         addressBook.getAllContacts().forEach(System.out::println);
+
 
      }
 }
