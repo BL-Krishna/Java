@@ -167,15 +167,15 @@ public class OOPSBannerApp {
         printOOPS();
         System.out.println();
 
-        // UC2
-        renderBannerUsingArrays();
-        System.out.println();
-
-        // UC3
-        printBanner(getOPattern(), getOPattern(), getPPattern(), getSPattern());
-        System.out.println();
-
-        // UC5 (UC4 implicitly used)
-        renderBannerUsingMap("OOPS");
+//        // UC2
+//        renderBannerUsingArrays();
+//        System.out.println();
+//
+//        // UC3
+//        printBanner(getOPattern(), getOPattern(), getPPattern(), getSPattern());
+//        System.out.println();
+//
+//        // UC5 (UC4 implicitly used)
+//        renderBannerUsingMap("OOPS");
     }
 }
