@@ -63,6 +63,55 @@ public class OOPSBannerApp {
             System.out.println(String.join("  ", O[i], O[i], P[i], S[i]));
         }
     }
+
+    /* =========================
+      UC3: Refactor into methods
+      ========================= */
+    public static String[] getOPattern() {
+        return new String[]{
+                "   ***   ",
+                " **   ** ",
+                "**     **",
+                "**     **",
+                "**     **",
+                " **   ** ",
+                "   ***   "
+        };
+    }
+
+    public static String[] getPPattern() {
+        return new String[]{
+                "******* ",
+                "**     **",
+                "**     **",
+                "******* ",
+                "**       ",
+                "**       ",
+                "**       "
+        };
+    }
+
+    public static String[] getSPattern() {
+        return new String[]{
+                " ****** ",
+                "**      ",
+                "**      ",
+                " *****  ",
+                "      **",
+                "      **",
+                " ****** "
+        };
+    }
+
+    public static void printBanner(String[]... patterns) {
+        for (int i = 0; i < patterns[0].length; i++) {
+            for (String[] pattern : patterns) {
+                System.out.print(pattern[i] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         // UC1
@@ -72,10 +121,10 @@ public class OOPSBannerApp {
         // UC2
         renderBannerUsingArrays();
         System.out.println();
-//
-//        // UC3
-//        printBanner(getOPattern(), getOPattern(), getPPattern(), getSPattern());
-//        System.out.println();
+
+        // UC3
+        printBanner(getOPattern(), getOPattern(), getPPattern(), getSPattern());
+        System.out.println();
 //
 //        // UC5 (UC4 implicitly used)
 //        renderBannerUsingMap("OOPS");
