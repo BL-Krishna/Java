@@ -112,6 +112,27 @@ public class OOPSBannerApp {
         }
     }
 
+    /* =========================
+      UC4: Inner Class
+      ========================= */
+    static class BannerCharacter {
+        private final char character;
+        private final String[] pattern;
+
+        public BannerCharacter(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
     public static void main(String[] args) {
 
         // UC1
