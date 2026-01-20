@@ -1,5 +1,7 @@
 package payroll;
 
+import java.time.LocalDate;
+
 public class EmployeePayrollMain {
     public static void main(String[] args) {
 
@@ -18,6 +20,9 @@ public class EmployeePayrollMain {
         service.updateEmployeeSalaryUsingPreparedStatement(
                 "Krishna", 5000000.00);
 
-
+        //UC 5
+        service.getEmployeesByDateRange(
+                LocalDate.of(2025,1,1),
+                LocalDate.now());
     }
 }

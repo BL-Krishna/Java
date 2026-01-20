@@ -1,7 +1,10 @@
 package payroll;
 
 import java.sql.*;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.*;
+
 
 public class PayrollDBService {
 
@@ -94,6 +97,36 @@ public class PayrollDBService {
         }
         return getEmployeeByNameStatement;
     }
+
+    /* ---------- UC 5 ---------- */
+    public List<EmployeePayrollData> getEmployeesByDateRange(
+            LocalDate start, LocalDate end) {
+
+        List<EmployeePayrollData> list = new ArrayList<>();
+        String sql = "SELECT * FROM employee_payroll WHERE start BETWEEN ? AND ?";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setDate(1, Date.valueOf(String.valueOf(start)));
+            ps.setDate(2, Date.valueOf(String.valueOf(end)));
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new EmployeePayrollData(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getDouble("salary"),
+                        rs.getString("gender"),
+                        rs.getDate("start").toLocalDate()
+                ));
+            }
+        } catch (SQLException e) {
+            throw new PayrollException("UC5 Error: " + e.getMessage());
+        }
+        return list;
+    }
+
 
 
 
