@@ -1,6 +1,7 @@
 package payroll;
 
 import java.sql.*;
+import java.util.*;
 public class PayrollDBService {
 
     private static PayrollDBService payrollDBService;
@@ -19,6 +20,30 @@ public class PayrollDBService {
     }
     private Connection getConnection() throws SQLException{
         return DriverManager.getConnection(DB_URL,USER,PASSWORD);
+    }
+
+    /* ---------- UC 2 ---------- */
+    public List<EmployeePayrollData> readEmployeePayrollData() {
+        List<EmployeePayrollData> list = new ArrayList<>();
+        String sql = "SELECT * FROM employee_payroll";
+
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                list.add(new EmployeePayrollData(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getDouble("salary"),
+                        rs.getString("gender"),
+                        rs.getDate("start").toLocalDate()
+                ));
+            }
+        } catch (SQLException e) {
+            throw new PayrollException("UC2 Error: " + e.getMessage());
+        }
+        return list;
     }
 
 
