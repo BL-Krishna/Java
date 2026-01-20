@@ -2,6 +2,7 @@ package payroll;
 
 import java.sql.*;
 import java.util.*;
+
 public class PayrollDBService {
 
     private static PayrollDBService payrollDBService;
@@ -12,6 +13,8 @@ public class PayrollDBService {
     private static final String PASSWORD="root";
 
     private PayrollDBService(){}
+
+    private PreparedStatement getEmployeeByNameStatement;
 
     public static PayrollDBService getInstance() {
         if (payrollDBService == null)
@@ -61,6 +64,38 @@ public class PayrollDBService {
             throw new PayrollException("UC3 Error: " + e.getMessage());
         }
     }
+
+    /* ---------- UC 4 ---------- */
+    public int updateEmployeeSalaryUsingPreparedStatement(
+            String name, double salary) {
+
+        String sql = "UPDATE employee_payroll SET salary = ? WHERE name = ?";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setDouble(1, salary);
+            ps.setString(2, name);
+            return ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new PayrollException("UC4 Error: " + e.getMessage());
+        }
+    }
+
+
+    private PreparedStatement getEmployeeByNamePreparedStatement()
+            throws SQLException {
+
+        if (getEmployeeByNameStatement == null) {
+            String sql = "SELECT * FROM employee_payroll WHERE name = ?";
+            getEmployeeByNameStatement =
+                    getConnection().prepareStatement(sql);
+        }
+        return getEmployeeByNameStatement;
+    }
+
+
 
 
 }
