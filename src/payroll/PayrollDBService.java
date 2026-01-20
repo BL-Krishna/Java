@@ -46,5 +46,21 @@ public class PayrollDBService {
         return list;
     }
 
+    /* ---------- UC 3 ---------- */
+    public int updateEmployeeSalary(String name, double salary) {
+        String sql = String.format(
+                "UPDATE employee_payroll SET salary = %f WHERE name = '%s'",
+                salary, name);
+
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement()) {
+
+            return stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            throw new PayrollException("UC3 Error: " + e.getMessage());
+        }
+    }
+
 
 }

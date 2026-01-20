@@ -5,9 +5,14 @@ public class EmployeePayrollMain {
 
       PayrollDBService  service=PayrollDBService.getInstance();
 
-      //uc2 reading the table data
+      //uc2 reading the employee payroll data
         service.readEmployeePayrollData()
                 .forEach(e -> System.out.println(e.name));
+
+        // UC 3
+        service.updateEmployeeSalary("Krishna", 3000000.00);
+        // UC 3
+        service.updateEmployeeSalary("Dattathreya", 4000000.00);
 
     }
 }
