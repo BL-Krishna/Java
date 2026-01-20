@@ -127,8 +127,29 @@ public class PayrollDBService {
         return list;
     }
 
+    /* ---------- UC 6 ---------- */
+    public Map<String, Double> getSalaryStatsByGender(String operation) {
 
+        Map<String, Double> map = new HashMap<>();
+
+        String sql = String.format(
+                "SELECT gender, %s(salary) FROM employee_payroll GROUP BY gender",
+                operation);
+
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                map.put(rs.getString("gender"), rs.getDouble(2));
+            }
+        } catch (SQLException e) {
+            throw new PayrollException("UC6 Error: " + e.getMessage());
+        }
+        return map;
+    }
 
 
 
 }
+

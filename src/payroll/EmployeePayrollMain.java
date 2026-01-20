@@ -24,5 +24,7 @@ public class EmployeePayrollMain {
         service.getEmployeesByDateRange(
                 LocalDate.of(2025,1,1),
                 LocalDate.now());
+        //UC 6
+        System.out.println(service.getSalaryStatsByGender("SUM"));
     }
 }
