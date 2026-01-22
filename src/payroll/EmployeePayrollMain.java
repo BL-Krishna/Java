@@ -1,30 +1,41 @@
 package payroll;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class EmployeePayrollMain {
+
     public static void main(String[] args) {
 
-      PayrollDBService  service=PayrollDBService.getInstance();
+        PayrollDBService service = PayrollDBService.getInstance();
 
-        //uc2 reading the employee payroll data
+        // UC 8 / UC 11
+        EmployeePayrollData emp =
+                service.addEmployee(
+                        "Krishna",
+                        "M",
+                        LocalDate.of(2025, 1, 10),
+                        500000,
+                        Arrays.asList("IT", "HR")
+                );
+
+        // UC 2
         service.readEmployeePayrollData()
-                .forEach(e -> System.out.println(e.name));
+                .forEach(e -> System.out.println(e.name + " " + e.salary));
 
-        // UC 3
-        service.updateEmployeeSalary("Krishna", 3000000.00);
-        // UC 3
-        service.updateEmployeeSalary("Dattathreya", 4000000.00);
+        // UC 3 / UC 4
+        service.updateEmployeeSalary("Krishna", 700000);
 
-        //UC 4
-        service.updateEmployeeSalaryUsingPreparedStatement(
-                "Krishna", 5000000.00);
-
-        //UC 5
+        // UC 5
         service.getEmployeesByDateRange(
-                LocalDate.of(2025,1,1),
-                LocalDate.now());
-        //UC 6
+                LocalDate.of(2024, 1, 1),
+                LocalDate.now()
+        );
+
+        // UC 6
         System.out.println(service.getSalaryStatsByGender("SUM"));
+
+        // UC 12
+        service.removeEmployee(emp.empId);
     }
 }
