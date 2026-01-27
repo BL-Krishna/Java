@@ -1,0 +1,9 @@
+{
+  "name": "node-js-practice",
+  "version": "1.0.0",
+  "description": "Node.js Programming Constructs Practice",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
