@@ -22,4 +22,4 @@ function primeFactors(n){
   return factors;
 }
 
-Module.exports={isPrime,getPalindrome,primeFactors};
+module.exports={isPrime,getPalindrome,primeFactors};

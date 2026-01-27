@@ -4,6 +4,6 @@
   "description": "Node.js Programming Constructs Practice",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node Day38/index.js"
   }
 }
