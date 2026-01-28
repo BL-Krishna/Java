@@ -6,7 +6,7 @@ function secondLargestWithoutSorting(){
     let arr=[];
 
     for(let i=0;i<10;i++){
-        arr.push(Math.floor(Math.random)*900+100);
+        arr.push(Math.floor(Math.random()*900)+100);
     }
     let largest=-Infinity ,secondLargest=-Infinity;
     let smallest=Infinity,secondSmallet=Infinity;
@@ -29,8 +29,8 @@ function secondLargestWithoutSorting(){
         }
     }
     console.log("Array ",arr);
-    console.log("2nd Smallest",arr[1]);
-    console.log("2nd Largest ",arr[arr.length-2]);
+    console.log("2nd Largest",secondLargest);
+    console.log("2nd Smallest ",secondSmallet);
 
 }
 // Sort array and find 2nd largest & smallest
@@ -45,7 +45,7 @@ function secondLargestSmallestWithSort() {
 
     console.log("Sorted Array:", arr);
     console.log("2nd Smallest:", arr[1]);
-    console.log("2nd Largest:", arr[arr.length - 2]);
+    console.log("2nd Largest", arr[arr.length - 2]);
 }
 
 //  Prime Factorization stored in array
