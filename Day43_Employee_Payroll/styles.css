@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+}
+
+.header {
+  background: #ffffff;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo span {
+  color: #8bc34a;
+  font-weight: bold;
+}
+
+.logo strong {
+  margin-left: 5px;
+}
+
+.container {
+  padding: 30px;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 20px;
+}
+
+thead {
+  background: #455a64;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.badge {
+  background: #dcedc8;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.btn.primary {
+  background: #8bc34a;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+#formView {
+  background: #fff;
+  padding: 30px;
+  width: 500px;
+  margin: auto;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.avatars input {
+  margin-right: 5px;
+}
+
+.checkboxes input {
+  margin-right: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
