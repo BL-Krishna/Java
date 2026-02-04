@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee Payroll</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header class="header">
+  <div class="logo">
+    <span>EMPLOYEE</span>
+    <strong>PAYROLL</strong>
+  </div>
+
+  <div>
+    Employee Count :
+    <strong id="empCount">0</strong>
+  </div>
+</header>
+
+
+
+<main class="container">
+
+  <!-- ================= EMPLOYEE LIST ================= -->
+  <section id="listView">
+    <div class="title-bar">
+      <h2>Employee Details</h2>
+      <button class="btn primary" onclick="showForm()">+ Add User</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th>Start Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="employeeTable"></tbody>
+    </table>
+  </section>
+
+  <!-- ================= ADD / EDIT FORM ================= -->
+  <section id="formView" class="hidden">
+    <h2>Add Employee Payroll</h2>
+
+    <form id="employeeForm">
+      <label>Name</label>
+      <input type="text" id="name" required />
+
+      <label>Profile Image</label>
+      <div class="avatars">
+        <input type="radio" name="avatar" value="👩" checked /> 👩
+        <input type="radio" name="avatar" value="👨" /> 👨
+        <input type="radio" name="avatar" value="🧔" /> 🧔
+        <input type="radio" name="avatar" value="👩‍💼" /> 👩‍💼
+      </div>
+
+      <label>Gender</label>
+      <div>
+        <input type="radio" name="gender" value="Male" required /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+      </div>
+
+      <label>Department</label>
+      <div class="checkboxes">
+        <input type="checkbox" value="HR" /> HR
+        <input type="checkbox" value="Sales" /> Sales
+        <input type="checkbox" value="Finance" /> Finance
+        <input type="checkbox" value="Engineer" /> Engineer
+      </div>
+
+      <label>Salary</label>
+      <select id="salary">
+        <option value="10000">₹ 10,000</option>
+        <option value="20000">₹ 20,000</option>
+        <option value="30000">₹ 30,000</option>
+        <option value="40000">₹ 40,000</option>
+        <option value="50000">₹ 50,000</option>
+        <option value="60000">₹ 60,000</option>
+      </select>
+
+      <label>Start Date</label>
+      <input type="date" id="startDate" required />
+
+      <label>Notes</label>
+      <textarea></textarea>
+
+      <div class="form-buttons">
+        <button type="button" class="btn" onclick="showList()">Cancel</button>
+        <button type="submit" class="btn primary">Submit</button>
+        <button type="reset" class="btn">Reset</button>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
