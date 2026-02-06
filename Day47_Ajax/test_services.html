@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Test</title>
+</head>
+
+<body>
+
+<h2>Employee List (AJAX + Promise)</h2>
+
+<button onclick="loadEmployees()">Load Employees</button>
+
+<div id="output"></div>
+
+<script src="js/http_services.js"></script>
+
+<script>
+function loadEmployees(){
+
+  makeServiceCall("GET", "http://localhost:3000/employees")
+    .then(data => {
+
+      const employees = JSON.parse(data);
+
+      let html = "";
+
+      employees.forEach(emp => {
+        html += `<p>${emp.id} - ${emp.name} - ₹${emp.salary}</p>`;
+      });
+
+      document.getElementById("output").innerHTML = html;
+
+    })
+    .catch(err => alert(err));
+}
+</script>
+
+</body>
+</html>
